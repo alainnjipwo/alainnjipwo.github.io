@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alain Njipwo P. W. — Analog Design Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07090d;--bg2:#0c0f16;--bg3:#121620;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);
+  --amber:#e8a020;--amber-dim:#7a4d06;--amber-glow:rgba(232,160,32,0.1);
+  --green:#3ddc84;
+  --text:#e2ddd6;--text-dim:#8c8880;--text-bright:#f5f2ee;
+  --serif:'Cormorant Garamond',serif;
+  --mono:'IBM Plex Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(232,160,32,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(232,160,32,0.022) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(7,9,13,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-name{font-family:var(--mono);font-size:0.72rem;color:var(--amber);letter-spacing:0.12em;text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--amber)}
+
+/* HERO */
+#hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 3rem 5rem}
+.hero-status{font-family:var(--mono);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;gap:0.75rem;margin-bottom:2.5rem}
+.hero-status::before{content:'';width:2rem;height:1px;background:var(--amber);display:block}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-name{font-family:var(--serif);font-size:clamp(2.8rem,8vw,7.5rem);font-weight:300;line-height:1;color:var(--text-bright);letter-spacing:-0.01em;margin-bottom:0.5rem}
+.hero-name em{color:var(--amber);font-style:italic}
+.hero-title{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.5vw,1.7rem);color:var(--text-dim);font-weight:300;letter-spacing:0.02em;margin-bottom:2.5rem}
+.hero-bio{max-width:540px;font-size:0.95rem;color:var(--text-dim);line-height:1.85;margin-bottom:3rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-fill{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--bg);background:var(--amber);text-decoration:none;padding:.85rem 1.75rem;border:1px solid var(--amber);transition:opacity .2s}
+.btn-fill:hover{opacity:.85}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);text-decoration:none;padding:.85rem 1.75rem;transition:background .2s}
+.btn-outline:hover{background:var(--amber-glow)}
+.hero-osc{position:absolute;right:4%;bottom:8%;width:min(420px,40vw);opacity:.38}
+
+/* TICKER */
+.ticker{position:relative;z-index:1;background:var(--bg2);border-bottom:1px solid var(--border);height:34px;display:flex;align-items:center;overflow:hidden}
+.ticker-track{display:flex;gap:4rem;white-space:nowrap;animation:scroll-left 38s linear infinite;font-family:var(--mono);font-size:0.6rem;color:var(--text-dim);letter-spacing:0.1em}
+.ticker-track b{color:var(--amber);font-weight:400}
+@keyframes scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.divider{position:relative;z-index:1;height:1px;background:var(--border)}
+section{position:relative;z-index:1;padding:6rem 3rem;max-width:1120px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:.65rem;display:flex;align-items:center;gap:.65rem}
+.sec-label::before{content:'';width:1.2rem;height:1px;background:var(--amber);display:block}
+h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--text-bright);line-height:1.15;margin-bottom:.75rem}
+h2 em{color:var(--amber);font-style:italic}
+.sec-intro{font-size:.95rem;color:var(--text-dim);max-width:600px;line-height:1.8;margin-bottom:3rem}
+
+/* ANALOG COURSES */
+.analog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.course-card{background:var(--bg2);padding:2.25rem 2rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:background .25s;cursor:default}
+.course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.course-card:hover{background:var(--bg3)}
+.course-card:hover::before{transform:scaleX(1)}
+.course-num{font-family:var(--mono);font-size:2rem;font-weight:300;color:var(--amber);letter-spacing:-0.02em;line-height:1}
+.course-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--text-bright);line-height:1.3}
+.course-desc{font-size:.84rem;color:var(--text-dim);line-height:1.7;flex:1}
+.course-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.tag{font-family:var(--mono);font-size:.58rem;padding:.22rem .55rem;border:1px solid var(--border2);color:var(--text-dim);letter-spacing:.06em}
+
+/* DIGITAL SECTION */
+.digital-section{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.digital-inner{max-width:1120px;margin:0 auto;padding:5rem 3rem}
+.digital-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.dtab{background:var(--bg3);padding:1.5rem 1.25rem;cursor:pointer;transition:background .2s;position:relative;border:none;width:100%;text-align:left;display:flex;flex-direction:column;gap:.6rem}
+.dtab::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--amber);opacity:0;transition:opacity .2s}
+.dtab:hover{background:var(--bg2)}
+.dtab.active{background:var(--bg2)}
+.dtab.active::after{opacity:1}
+.dtab-num{font-family:var(--mono);font-size:1.1rem;color:var(--amber);font-weight:300}
+.dtab-title{font-family:var(--serif);font-size:.95rem;color:var(--text-bright);font-weight:400;line-height:1.3}
+.dtab-sub{font-family:var(--mono);font-size:.58rem;color:var(--text-dim);letter-spacing:.08em}
+.dtab-panels{border:1px solid var(--border);border-top:none;background:var(--bg2)}
+.dtab-panel{display:none;padding:2rem;flex-direction:row;gap:2.5rem;align-items:flex-start}
+.dtab-panel.active{display:flex}
+.panel-main{flex:1}
+.panel-main h4{font-family:var(--serif);font-size:1.3rem;color:var(--text-bright);margin-bottom:.6rem;font-weight:400}
+.panel-main p{font-size:.88rem;color:var(--text-dim);line-height:1.75;margin-bottom:1rem}
+.panel-skills{display:flex;flex-wrap:wrap;gap:.4rem}
+.panel-skill{font-family:var(--mono);font-size:.6rem;padding:.22rem .6rem;border:1px solid var(--border2);color:var(--text-dim);letter-spacing:.06em}
+.panel-aside{min-width:180px;display:flex;flex-direction:column;gap:.5rem}
+.panel-stat{background:var(--bg3);padding:1rem 1.25rem;border-left:2px solid var(--amber-dim)}
+.panel-stat-val{font-family:var(--mono);font-size:.78rem;color:var(--green);margin-bottom:.2rem}
+.panel-stat-key{font-family:var(--mono);font-size:.58rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase}
+
+/* CS SECTION */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:3rem}
+.cs-card{background:var(--bg2);padding:2.25rem 2rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:background .25s;cursor:default}
+.cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.cs-card:hover{background:var(--bg3)}
+.cs-card:hover::before{transform:scaleX(1)}
+.cs-num{font-family:var(--mono);font-size:1.6rem;font-weight:300;color:var(--green);letter-spacing:-0.02em;line-height:1}
+.cs-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--text-bright);line-height:1.3}
+.cs-desc{font-size:.84rem;color:var(--text-dim);line-height:1.7;flex:1}
+.cs-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.cs-tag{font-family:var(--mono);font-size:.58rem;padding:.22rem .55rem;border:1px solid rgba(61,220,132,0.2);color:var(--green);letter-spacing:.06em;opacity:.8}
+.skills-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.skill-col{background:var(--bg2);padding:1.75rem}
+.skill-col h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.skill-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.skill-col li{font-family:var(--mono);font-size:.78rem;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.skill-col li::before{content:'';width:4px;height:4px;background:var(--green);opacity:.6;flex-shrink:0;display:block}
+
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-bio p{color:var(--text);font-size:.95rem;margin-bottom:1.2rem;line-height:1.8}
+.about-bio strong{color:var(--text-bright);font-weight:500}
+.hobbies-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);align-self:start}
+.hobby-tile{background:var(--bg2);padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;transition:background .2s;cursor:default}
+.hobby-tile:hover{background:var(--bg3)}
+.hobby-icon{font-size:1.4rem;line-height:1}
+.hobby-name{font-family:var(--serif);font-size:1rem;color:var(--text-bright);font-weight:400}
+.hobby-desc{font-size:.8rem;color:var(--text-dim);line-height:1.6}
+
+/* QUOTES */
+.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.quote-card{background:var(--bg2);border:1px solid var(--border);padding:2rem 1.75rem;display:flex;flex-direction:column;gap:1.25rem;transition:border-color .2s,background .2s;cursor:default}
+.quote-card:hover{background:var(--bg3);border-color:var(--amber-dim)}
+.quote-mark{font-family:var(--serif);font-size:3.5rem;color:var(--amber-dim);line-height:.8;font-style:italic}
+.quote-text{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--text-bright);line-height:1.65;font-weight:300;flex:1}
+.quote-attr{font-family:var(--mono);font-size:.6rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;border-top:1px solid var(--border);padding-top:.85rem}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-desc p{color:var(--text-dim);font-size:.95rem;margin-bottom:1.5rem;line-height:1.8}
+.contact-links{display:flex;flex-direction:column;gap:.75rem}
+.clink{display:flex;align-items:center;gap:1rem;font-family:var(--mono);font-size:.76rem;color:var(--text-dim);text-decoration:none;letter-spacing:.07em;padding:.9rem 1.2rem;border:1px solid var(--border);background:var(--bg2);transition:border-color .2s,color .2s,background .2s}
+.clink:hover{border-color:var(--amber-dim);color:var(--amber);background:var(--amber-glow)}
+.clink-label{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:.1rem}
+.contact-form{display:flex;flex-direction:column;gap:.9rem}
+.form-row{display:flex;flex-direction:column;gap:.35rem}
+.form-row label{font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim)}
+.form-row input,.form-row textarea{background:var(--bg2);border:1px solid var(--border2);color:var(--text-bright);font-family:var(--mono);font-size:.78rem;padding:.72rem 1rem;outline:none;transition:border-color .2s;resize:vertical}
+.form-row input:focus,.form-row textarea:focus{border-color:var(--amber-dim)}
+.form-submit{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--amber);border:none;padding:.88rem 2rem;cursor:pointer;transition:opacity .2s;align-self:flex-start;margin-top:.25rem}
+.form-submit:hover{opacity:.85}
+
+/* FOOTER */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.6rem 3rem;display:flex;justify-content:space-between;align-items:center}
+footer p{font-family:var(--mono);font-size:.6rem;color:var(--text-dim);letter-spacing:.1em}
+footer span{color:var(--amber)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  #hero,section{padding-left:1.5rem;padding-right:1.5rem}
+  .digital-inner{padding:3rem 1.5rem}
+  .analog-grid{grid-template-columns:1fr 1fr}
+  .digital-tabs{grid-template-columns:1fr 1fr}
+  .dtab-panel.active{flex-direction:column}
+  .about-layout,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .quotes-grid{grid-template-columns:1fr 1fr}
+  .hero-osc{display:none}
+}
+@media(max-width:560px){
+  .analog-grid,.digital-tabs,.hobbies-grid,.quotes-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#hero">Alain Njipwo P. W.</a>
+  <ul class="nav-links">
+    <li><a href="#analog">Analog</a></li>
+    <li><a href="#digital">Digital</a></li>
+    <li><a href="#cs">Comp. Engineering</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#quotes">Quotes</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-status"><span class="dot"></span> Available for opportunities</div>
+  <div class="hero-name">Alain<br><em>Njipwo</em><br>P. W.</div>
+  <div class="hero-title">Analog Design Engineer &amp; Electrical Engineering Student</div>
+  <p class="hero-bio">Designing precision analog circuits from first principles — where every nanoamp of bias current and every degree of phase margin is a deliberate choice. Grounded in classical circuit theory, verified through simulation and hardware.</p>
+  <div class="hero-ctas">
+    <a href="#analog" class="btn-fill">View coursework →</a>
+    <a href="#contact" class="btn-outline">Get in touch</a>
+  </div>
+  <svg class="hero-osc" viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1" width="398" height="258" rx="4" stroke="#e8a020" stroke-opacity="0.18" stroke-width="1"/>
+    <line x1="0" y1="52" x2="400" y2="52" stroke="#e8a020" stroke-opacity="0.06"/><line x1="0" y1="104" x2="400" y2="104" stroke="#e8a020" stroke-opacity="0.06"/>
+    <line x1="0" y1="130" x2="400" y2="130" stroke="#e8a020" stroke-opacity="0.1"/><line x1="0" y1="156" x2="400" y2="156" stroke="#e8a020" stroke-opacity="0.06"/>
+    <line x1="0" y1="208" x2="400" y2="208" stroke="#e8a020" stroke-opacity="0.06"/>
+    <line x1="80" y1="0" x2="80" y2="260" stroke="#e8a020" stroke-opacity="0.06"/><line x1="160" y1="0" x2="160" y2="260" stroke="#e8a020" stroke-opacity="0.06"/>
+    <line x1="200" y1="0" x2="200" y2="260" stroke="#e8a020" stroke-opacity="0.1"/><line x1="240" y1="0" x2="240" y2="260" stroke="#e8a020" stroke-opacity="0.06"/>
+    <line x1="320" y1="0" x2="320" y2="260" stroke="#e8a020" stroke-opacity="0.06"/>
+    <path d="M0,130 C10,130 19,52 40,52 C61,52 70,208 91,208 C112,208 121,52 142,52 C163,52 172,208 193,208 C214,208 223,52 244,52 C265,52 274,208 295,208 C316,208 325,52 346,52 C367,52 376,130 400,130" stroke="#e8a020" stroke-width="1.6" stroke-opacity="0.7" fill="none"/>
+    <polyline points="0,185 80,185 80,75 160,75 160,185 240,185 240,75 320,75 320,185 400,185" stroke="#3ddc84" stroke-width="1" stroke-opacity="0.35" fill="none"/>
+    <text x="8" y="15" font-family="IBM Plex Mono" font-size="7.5" fill="#e8a020" fill-opacity="0.5">CH1  1V/div</text>
+    <text x="8" y="25" font-family="IBM Plex Mono" font-size="7.5" fill="#3ddc84" fill-opacity="0.4">CH2  500mV/div</text>
+    <text x="268" y="15" font-family="IBM Plex Mono" font-size="7.5" fill="#e8a020" fill-opacity="0.45">f = 500.00 kHz</text>
+    <text x="8" y="252" font-family="IBM Plex Mono" font-size="7" fill="#e8a020" fill-opacity="0.3">20µs/div    PM = 62°    GBW = 12 MHz</text>
+  </svg>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Gain–Bandwidth &nbsp;·&nbsp; <b>GBW</b></span><span>Phase Margin &nbsp;·&nbsp; <b>PM = 62°</b></span><span>Input Noise &nbsp;·&nbsp; <b>4.8 nV/√Hz</b></span><span>CMRR &nbsp;·&nbsp; <b>128 dB</b></span><span>PSRR &nbsp;·&nbsp; <b>95 dB</b></span><span>Slew Rate &nbsp;·&nbsp; <b>180 V/µs</b></span><span>RMS Jitter &nbsp;·&nbsp; <b>82 fs</b></span><span>SFDR &nbsp;·&nbsp; <b>−98 dBc</b></span><span>PVT Corners &nbsp;·&nbsp; <b>SS / TT / FF</b></span><span>Settling &nbsp;·&nbsp; <b>48 ns to 0.01%</b></span>
+    <span>Gain–Bandwidth &nbsp;·&nbsp; <b>GBW</b></span><span>Phase Margin &nbsp;·&nbsp; <b>PM = 62°</b></span><span>Input Noise &nbsp;·&nbsp; <b>4.8 nV/√Hz</b></span><span>CMRR &nbsp;·&nbsp; <b>128 dB</b></span><span>PSRR &nbsp;·&nbsp; <b>95 dB</b></span><span>Slew Rate &nbsp;·&nbsp; <b>180 V/µs</b></span><span>RMS Jitter &nbsp;·&nbsp; <b>82 fs</b></span><span>SFDR &nbsp;·&nbsp; <b>−98 dBc</b></span><span>PVT Corners &nbsp;·&nbsp; <b>SS / TT / FF</b></span><span>Settling &nbsp;·&nbsp; <b>48 ns to 0.01%</b></span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ ANALOG COURSES ═══ -->
+<section id="analog">
+  <p class="sec-label">01 — Analog Design &amp; EE Coursework</p>
+  <h2>Core analog <em>curriculum</em></h2>
+  <p class="sec-intro">The courses that shaped how I think about circuits — from small-signal models and noise analysis to high-frequency IC design and electromagnetic fields.</p>
+  <div class="analog-grid">
+
+    <div class="course-card">
+      <div class="course-num">EE435</div>
+      <div class="course-title">Analog VLSI Circuit Design</div>
+      <p class="course-desc">Basic analog integrated circuit and system design including design space exploration, performance enhancement strategies, operational amplifiers, references, integrated filters, and data converters.</p>
+      <div class="course-tags"><span class="tag">Op-Amps</span><span class="tag">Data Converters</span><span class="tag">Integrated Filters</span><span class="tag">VLSI</span></div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-num">EE465</div>
+      <div class="course-title">VLSI Design of Integrated Circuits</div>
+      <p class="course-desc">Digital design of integrated circuits employing very large scale integration (VLSI) methodologies. Technology considerations in design. High level hardware design languages, CMOS logic design styles, area-energy-delay design space characterization, datapath blocks: arithmetic and memory, architectures and systems on a chip (SOC) considerations.</p>
+      <div class="course-tags"><span class="tag">VLSI</span><span class="tag">CMOS Logic</span><span class="tag">HDL</span><span class="tag">SoC</span><span class="tag">Datapath Design</span></div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-num">EE501</div>
+      <div class="course-title">Analog & Mixed-Signal VLSI Design</div>
+      <p class="course-desc">Design techniques for analog and mixed-signal VLSI circuits. Amplifiers; operational amplifiers, transconductance amplifiers, finite gain amplifiers and current amplifiers. Linear building blocks; differential amplifiers, current mirrors, references, cascading and buffering. Performance characterization of linear integrated circuits; offset, noise, sensitivity and stability. Layout considerations, simulation, yield and modeling for high-performance linear integrated circuits.</p>
+      <div class="course-tags"><span class="tag">Op-Amps</span><span class="tag">Current Mirrors</span><span class="tag">Noise & Offset</span><span class="tag">Layout</span><span class="tag">VLSI</span></div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-num">EE505</div>
+      <div class="course-title">Data Conversion Circuits</div>
+      <p class="course-desc">Theory, design and applications of data conversion circuits (A/D and D/A converters) including: architectures, characterization, quantization effects, conversion algorithms, spectral performance, element matching, design for yield, and practical comparators, implementation issues.</p>
+      <div class="course-tags"><span class="tag">ADC / DAC</span><span class="tag">Quantization</span><span class="tag">Spectral Analysis</span><span class="tag">Design for Yield</span></div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-num">EE508</div>
+      <div class="course-title">Filter Design & Synthesis</div>
+      <p class="course-desc">Filter design concepts. Approximation and synthesis. Transformations. Continuous-time and discrete time filters. Discrete, active and integrated synthesis techniques.</p>
+      <div class="course-tags"><span class="tag">Filter Synthesis</span><span class="tag">Continuous-Time</span><span class="tag">Discrete-Time</span><span class="tag">Active Filters</span></div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-num">EE509</div>
+      <div class="course-title">Mixed-Signal IC Testing</div>
+      <p class="course-desc">Introduction to mixed-signal IC testing; measurement uncertainty and test validity; IEEE standard test algorithms; high performance test and built-in self test challenges; new mixed-signal test algorithms and techniques to reduce data acquisition, relax instrumentation requirements, simplify test setup, improve test validity, and/or enable co-testing of heterogeneous functions.</p>
+      <div class="course-tags"><span class="tag">IC Testing</span><span class="tag">BIST</span><span class="tag">IEEE Standards</span><span class="tag">Mixed-Signal</span></div>
+    </div>
+
+    <div class="course-card">
+      <div class="course-num">EE532</div>
+      <div class="course-title">Semiconductor Fabrication</div>
+      <p class="course-desc">Techniques used in modern integrated circuit fabrication, including diffusion, oxidation, ion implantation, lithography, evaporation, sputtering, chemical-vapor deposition, and etching. Process integration, evaluation, and final device testing. Extensive lab exercises building electronic devices, computer simulation for predicting processing outcomes, and recent advances in CMOS IC and MEMS fabrication.</p>
+      <div class="course-tags"><span class="tag">CMOS Fabrication</span><span class="tag">Lithography</span><span class="tag">Ion Implantation</span><span class="tag">CVD & Etching</span><span class="tag">MEMS</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DIGITAL COURSES ═══ -->
+<div class="digital-section" id="digital">
+  <div class="digital-inner">
+    <p class="sec-label">02 — Digital Circuit Design</p>
+    <h2>Supporting <em>digital</em> foundations</h2>
+    <p class="sec-intro" style="margin-bottom:2rem">Coursework in digital logic, embedded systems, and computer organization that complements my analog focus. Select a course to expand.</p>
+
+    <div class="digital-tabs">
+      <button class="dtab active" onclick="showTab(event,'cpre281')">
+        <span class="dtab-num">CPRE281</span>
+        <span class="dtab-title">Digital Logic</span>
+        <span class="dtab-sub">Click to expand</span>
+      </button>
+      <button class="dtab" onclick="showTab(event,'cpre288')">
+        <span class="dtab-num">CPRE288</span>
+        <span class="dtab-title">Embedded Systems</span>
+        <span class="dtab-sub">Click to expand</span>
+      </button>
+      <button class="dtab" onclick="showTab(event,'cpre381')">
+        <span class="dtab-num">CPRE381</span>
+        <span class="dtab-title">Computer Organization & Assembly</span>
+        <span class="dtab-sub">Click to expand</span>
+      </button>
+      <button class="dtab" onclick="showTab(event,'cpre308')">
+        <span class="dtab-num">CPRE308</span>
+        <span class="dtab-title">Operating Systems: Principles & Practice</span>
+        <span class="dtab-sub">Click to expand</span>
+      </button>
+    </div>
+
+    <div class="dtab-panels">
+      <div class="dtab-panel active" id="panel-cpre281">
+        <div class="panel-main">
+          <h4>Digital Logic</h4>
+          <p>Number systems and representation. Boolean algebra and logic minimization. Combinational and sequential logic design. Arithmetic circuits and finite state machines. Use of programmable logic devices. Introduction to computer-aided schematic capture systems, simulation tools, and hardware description languages. Design of simple digital systems.</p>
+          <div class="panel-skills">
+            <span class="panel-skill">Boolean Algebra</span><span class="panel-skill">FSMs</span><span class="panel-skill">HDL</span><span class="panel-skill">PLDs</span><span class="panel-skill">Logic Minimization</span>
+          </div>
+        </div>
+        <div class="panel-aside">
+          <div class="panel-stat"><div class="panel-stat-val">[Grade / Outcome]</div><div class="panel-stat-key">Course result</div></div>
+          <div class="panel-stat"><div class="panel-stat-val">[Key project]</div><div class="panel-stat-key">Notable work</div></div>
+        </div>
+      </div>
+      <div class="dtab-panel" id="panel-cpre288">
+        <div class="panel-main">
+          <h4>Embedded Systems</h4>
+          <p>Embedded C programming. Interrupt handling. Memory mapped I/O in the context of an application. Elementary embedded design flow/methodology. Timers, scheduling, resource allocation, optimization, state machine based controllers, real time constraints within the context of an application. Applications laboratory exercises with embedded devices.</p>
+          <div class="panel-skills">
+            <span class="panel-skill">Embedded C</span><span class="panel-skill">Interrupts</span><span class="panel-skill">Memory-Mapped I/O</span><span class="panel-skill">Real-Time Systems</span><span class="panel-skill">State Machines</span>
+          </div>
+        </div>
+        <div class="panel-aside">
+          <div class="panel-stat"><div class="panel-stat-val">[Grade / Outcome]</div><div class="panel-stat-key">Course result</div></div>
+          <div class="panel-stat"><div class="panel-stat-val">[Key project]</div><div class="panel-stat-key">Notable work</div></div>
+        </div>
+      </div>
+      <div class="dtab-panel" id="panel-cpre381">
+        <div class="panel-main">
+          <h4>Computer Organization and Assembly Level Programming</h4>
+          <p>Introduction to computer organization, evaluating performance of computer systems, instruction set design. Assembly level programming: arithmetic operations, control flow instructions, procedure calls, stack management. Processor design. Datapath and control, scalar pipelines, introduction to memory and I/O systems.</p>
+          <div class="panel-skills">
+            <span class="panel-skill">Assembly Programming</span><span class="panel-skill">Processor Design</span><span class="panel-skill">Pipelining</span><span class="panel-skill">Instruction Sets</span><span class="panel-skill">Datapath & Control</span>
+          </div>
+        </div>
+        <div class="panel-aside">
+          <div class="panel-stat"><div class="panel-stat-val">[Grade / Outcome]</div><div class="panel-stat-key">Course result</div></div>
+          <div class="panel-stat"><div class="panel-stat-val">[Key project]</div><div class="panel-stat-key">Notable work</div></div>
+        </div>
+      </div>
+      <div class="dtab-panel" id="panel-cpre308">
+        <div class="panel-main">
+          <h4>Operating Systems: Principles and Practice</h4>
+          <p>Operating system concepts, processes, threads, synchronization between threads, process and thread scheduling, deadlocks, memory management, file systems, I/O systems, security, Linux-based lab experiments.</p>
+          <div class="panel-skills">
+            <span class="panel-skill">Processes & Threads</span><span class="panel-skill">Synchronization</span><span class="panel-skill">Scheduling</span><span class="panel-skill">Memory Management</span><span class="panel-skill">File Systems</span><span class="panel-skill">Linux</span>
+          </div>
+        </div>
+        <div class="panel-aside">
+          <div class="panel-stat"><div class="panel-stat-val">[Grade / Outcome]</div><div class="panel-stat-key">Course result</div></div>
+          <div class="panel-stat"><div class="panel-stat-val">[Key project]</div><div class="panel-stat-key">Notable work</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ CS & SOFTWARE ═══ -->
+<section id="cs">
+  <p class="sec-label">03 — Computer Engineering</p>
+  <h2>Programming &amp; <em>algorithmic</em> foundations</h2>
+  <p class="sec-intro">Core computer science coursework underpinning my engineering practice — from object-oriented design and data structures to algorithm analysis and systems programming.</p>
+
+  <div class="cs-grid">
+
+    <div class="cs-card">
+      <div class="cs-num">CPRE 185 &amp; 186</div>
+      <div class="cs-title">Introduction to Computer Engineering and Problem Solving</div>
+      <p class="cs-desc">Foundational introduction to computer engineering principles and systematic problem solving. Covers programming fundamentals, hardware-software interaction, and the engineering design process as applied to computational problems.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Problem Solving</span>
+        <span class="cs-tag">Programming Fundamentals</span>
+        <span class="cs-tag">Engineering Design</span>
+      </div>
+    </div>
+
+    <div class="cs-card">
+      <div class="cs-num">COM S 227 &amp; 228</div>
+      <div class="cs-title">Object-Oriented Programming</div>
+      <p class="cs-desc">Computer programming using objects as the mechanism for modularity, abstraction, and code reuse. Instance variables, methods, and encapsulation. Control structures, algorithms on strings, arrays, and lists. Recursion, searching, and sorting. Text parsing and file I/O. Interfaces, inheritance, polymorphism, and abstract classes. Exception handling, unit testing, and debugging.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Java</span>
+        <span class="cs-tag">OOP</span>
+        <span class="cs-tag">Data Structures</span>
+        <span class="cs-tag">Recursion</span>
+        <span class="cs-tag">Unit Testing</span>
+      </div>
+    </div>
+
+    <div class="cs-card" style="grid-column:1/-1">
+      <div class="cs-num">COM S 311</div>
+      <div class="cs-title">Introduction to the Design and Analysis of Algorithms</div>
+      <p class="cs-desc">Basic techniques for design and analysis of algorithms. Sorting, searching, graph algorithms, string matching, and NP-completeness. Design techniques include dynamic programming, divide and conquer, greedy methods, and approximation. Asymptotic, worst-case, average-case, and amortized analyses. Topics from advanced data structures such as balanced trees and hashing. Programming projects.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Dynamic Programming</span>
+        <span class="cs-tag">Divide &amp; Conquer</span>
+        <span class="cs-tag">Graph Algorithms</span>
+        <span class="cs-tag">NP-Completeness</span>
+        <span class="cs-tag">Asymptotic Analysis</span>
+        <span class="cs-tag">Hashing</span>
+      </div>
+    </div>
+
+    <div class="cs-card" style="grid-column:1/-1">
+      <div class="cs-num">COM S 252</div>
+      <div class="cs-title">Linux Operating System Essentials</div>
+      <p class="cs-desc">Introduction to installation, utilization, and administration of Linux systems. Topics include open-source software, package installation and management, shell programming and command-line utilities, process and service management, account management, network configuration, file sharing, interoperation with other computers and operating systems, automation, and system security.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Linux</span>
+        <span class="cs-tag">Shell Scripting</span>
+        <span class="cs-tag">System Administration</span>
+        <span class="cs-tag">Networking</span>
+        <span class="cs-tag">Automation</span>
+        <span class="cs-tag">Security</span>
+        <span class="cs-tag">Open Source</span>
+      </div>
+    </div>
+
+    <div class="cs-card" style="grid-column:1/-1">
+      <div class="cs-num">COM S 309</div>
+      <div class="cs-title">Software Development Practices</div>
+      <p class="cs-desc">A project-driven course covering the full software development lifecycle. Teams conceptualize, design, and ship a working application under real engineering constraints — learning risk management, rapid prototyping, and accountability along the way. Topics span requirements elicitation, software architecture, configuration management, testing, and professional ethics. Includes hands-on exposure to relational databases (SQL, OO modeling), networking fundamentals (DNS, HTTP, client-server APIs, sockets), and source control — all applied within a semester-long group project.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Agile / SDLC</span>
+        <span class="cs-tag">Team Project</span>
+        <span class="cs-tag">Software Architecture</span>
+        <span class="cs-tag">SQL &amp; Databases</span>
+        <span class="cs-tag">Networking</span>
+        <span class="cs-tag">Version Control</span>
+        <span class="cs-tag">Testing &amp; Reviews</span>
+        <span class="cs-tag">Ethics</span>
+      </div>
+    </div>
+
+    <div class="cs-card" style="grid-column:1/-1">
+      <div class="cs-num">CPRE 530</div>
+      <div class="cs-title">Network Protocols &amp; Security</div>
+      <p class="cs-desc">Detailed examination of networking standards, protocols, and their implementation. TCP/IP protocol suite, network application protocols. Network security issues, attack and mitigation techniques.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">TCP/IP</span>
+        <span class="cs-tag">Network Protocols</span>
+        <span class="cs-tag">Network Security</span>
+        <span class="cs-tag">Attack & Mitigation</span>
+        <span class="cs-tag">Application Protocols</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="skills-strip">
+    <div class="skill-col">
+      <h4>Languages</h4>
+      <ul>
+        <li>MATLAB</li>
+        <li>Java</li>
+        <li>Verilog / HDL</li>
+        <li>C / Embedded C</li>
+        <li>Bash / Shell</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <h4>Tools &amp; Environments</h4>
+      <ul>
+        <li>Cadence Virtuoso</li>
+        <li>Linux</li>
+        <li>Git &amp; GitHub</li>
+        <li>GDB (debugging)</li>
+        <li>JUnit (unit testing)</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <h4>Concepts</h4>
+      <ul>
+        <li>Mixed-Signal Processing</li>
+        <li>IC Layout & Simulation</li>
+        <li>Algorithm Design</li>
+        <li>Object-Oriented Design</li>
+        <li>Network Protocols</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <p class="sec-label">04 — About Me</p>
+  <h2>Beyond the <em>bench</em></h2>
+  <div class="about-layout">
+    <div class="about-bio">
+      <p>Hi — I'm <strong>Alain Njipwo P. W.</strong>, an electrical engineering student with a deep focus on analog and mixed-signal circuit design. I'm drawn to the parts of engineering that resist abstraction — where physics asserts itself and precision is non-negotiable.</p>
+      <p>Outside of the lab and simulator, I have a life full of things I'm passionate about. [Write a sentence or two here about yourself — your background, where you're from, what drives you beyond engineering.]</p>
+      <p>I'm currently studying at <strong>[Your University / Iowa State University]</strong> and actively looking for internship and research opportunities in analog IC design, mixed-signal circuits, and RF systems.</p>
+      <p style="font-family:var(--mono);font-size:.78rem;color:var(--text-dim);margin-top:1.5rem">📍 Ames, Iowa &nbsp;·&nbsp; Open to relocation &nbsp;·&nbsp; Available [Month Year]</p>
+    </div>
+    <div class="hobbies-grid">
+      <div class="hobby-tile">
+        <div class="hobby-icon">⚽</div>
+        <div class="hobby-name">Soccer</div>
+        <div class="hobby-desc">A lifelong passion — whether playing, watching, or debating tactics. The teamwork and precision on the pitch mirrors the discipline I bring to engineering.</div>
+      </div>
+      <div class="hobby-tile">
+        <div class="hobby-icon">🚗</div>
+        <div class="hobby-name">Cars</div>
+        <div class="hobby-desc">From engine mechanics to automotive design, cars sit at the intersection of engineering and culture. I love understanding how they work as much as how they feel to drive.</div>
+      </div>
+      <div class="hobby-tile">
+        <div class="hobby-icon">🥾</div>
+        <div class="hobby-name">Hiking</div>
+        <div class="hobby-desc">Getting off the grid and into nature resets my perspective. There's something clarifying about a long trail — the kind of focus it demands isn't so different from debugging a circuit.</div>
+      </div>
+      <div class="hobby-tile">
+        <div class="hobby-icon">⚡</div>
+        <div class="hobby-name">Analog Tinkering</div>
+        <div class="hobby-desc">Building and experimenting with circuits outside of class — because the best way to understand a topology is to breadboard it, probe it, and watch it misbehave.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ QUOTES ═══ -->
+<section id="quotes">
+  <p class="sec-label">05 — Quotes That Inspire Me</p>
+  <h2>Words that <em>resonate</em></h2>
+  <p class="sec-intro">Lines that have shaped how I think about engineering, learning, and life.</p>
+  <div class="quotes-grid">
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">[Add your first inspiring quote here — something that motivates how you approach your work or life.]</p>
+      <div class="quote-attr">— [Author Name]</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">[Add a second quote — perhaps something about engineering, precision, or perseverance that speaks to you.]</p>
+      <div class="quote-attr">— [Author Name]</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">[Add a third quote — maybe something about learning, curiosity, or the nature of problem-solving.]</p>
+      <div class="quote-attr">— [Author Name]</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">[Add a fourth quote — a personal favorite that captures something true about how you see the world.]</p>
+      <div class="quote-attr">— [Author Name]</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">[Add a fifth quote — from a professor, mentor, book, or person who influenced your path.]</p>
+      <div class="quote-attr">— [Author Name]</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">[Add a sixth quote — something you return to when you need motivation or perspective.]</p>
+      <div class="quote-attr">— [Author Name]</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <p class="sec-label">06 — Contact</p>
+  <h2>Let's <em>connect</em></h2>
+  <div class="contact-grid">
+    <div class="contact-desc">
+      <p>Whether you're recruiting for an analog design internship, working on a research project, or just want to talk circuits — I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#770e18020537121a161e1b5914181a" class="clink">
+          <span>✉</span>
+          <span><span class="clink-label">Email</span><span class="__cf_email__" data-cfemail="f1889e8483b1949c90989ddf929e9c">[email&#160;protected]</span></span>
+        </a>
+        <a href="https://linkedin.com/in/yourhandle" class="clink" target="_blank">
+          <span>in</span>
+          <span><span class="clink-label">LinkedIn</span>linkedin.com/in/yourhandle</span>
+        </a>
+        <a href="https://github.com/yourhandle" class="clink" target="_blank">
+          <span>gh</span>
+          <span><span class="clink-label">GitHub</span>github.com/yourhandle</span>
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="return false">
+      <div class="form-row"><label for="cn">Name</label><input type="text" id="cn" placeholder="Your name"/></div>
+      <div class="form-row"><label for="ce">Email</label><input type="email" id="ce" placeholder="your@email.com"/></div>
+      <div class="form-row"><label for="cm">Message</label><textarea id="cm" rows="5" placeholder="Tell me about your project or opportunity..."></textarea></div>
+      <button type="submit" class="form-submit">Send message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 — <span>Alain Njipwo P. W.</span></p>
+  <p>Analog Design Engineer · EE Student</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function showTab(e,id){
+  document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.dtab-panel').forEach(p=>p.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+// Nav highlight on scroll
+const secs=[...document.querySelectorAll('section[id]'),...document.querySelectorAll('.digital-section[id]')];
+const navAs=document.querySelectorAll('.nav-links a');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+e.target.id?'var(--amber)':''});
+  });
+},{threshold:0.3}).observe && secs.forEach(s=>new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+e.target.id?'var(--amber)':''})});
+},{threshold:0.3}).observe(s));
+
+// Fade-in
+const fades=document.querySelectorAll('.course-card,.quote-card,.hobby-tile,.panel-stat,.about-bio p');
+fades.forEach(el=>{el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity .5s ease,transform .5s ease'});
+const fo=new IntersectionObserver(entries=>{
+  ent
