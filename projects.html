@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alain Njipwo | Engineering Portfolio</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,Segoe UI,sans-serif;background:#101315;color:#eae9e4}*{box-sizing:border-box}body{margin:0}header,main,footer{max-width:1120px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #353632}a{color:#efb854}nav a{margin-left:24px;text-decoration:none} .hero{padding:90px 0 60px}.eyebrow{color:#efb854;letter-spacing:.18em;text-transform:uppercase;font-size:.75rem}h1{font-size:clamp(2.7rem,7vw,5rem);line-height:1.05;max-width:850px;margin:20px 0}p{color:#b8bab5;line-height:1.7;max-width:700px}.section{padding:30px 0 70px}h2{font-size:2rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card{border:1px solid #393c38;background:#191d1c;padding:25px;min-height:200px;display:flex;flex-direction:column}.card h3{font-size:1.2rem;margin:15px 0}.card p{font-size:.9rem;margin:0 0 24px}.status{margin-top:auto;color:#efb854;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}footer{border-top:1px solid #353632;color:#999;font-size:.85rem}@media(max-width:550px){nav a{margin-left:12px}.hero{padding:60px 0 40px}}
+</style>
+<style>
+header nav{display:flex;flex-wrap:wrap;gap:18px}header nav a{margin:0}.project-tabs{display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid #393c38;padding-bottom:16px}.project-tabs a{padding:10px 15px;color:#b8bab5;text-decoration:none;border:1px solid #393c38}.project-tabs a[aria-current="page"]{color:#101315;background:#efb854;border-color:#efb854}[hidden]{display:none!important}@media(max-width:550px){header{align-items:flex-start;gap:20px;flex-direction:column}}
+</style>
+</head>
+<body><header><strong>ALAIN NJIPWO</strong><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="#projects">Projects</a></nav></header>
+<main><section id="home" class="hero"><span class="eyebrow">Engineering portfolio</span><h1>Alain Njipwo</h1><p>Exploring analog design, one circuit at a time.</p><p>A collection of engineering projects and developing work in analog and mixed-signal design.</p><a href="#projects">Explore projects →</a></section>
+<div id="project-view" hidden><section class="section"><span class="eyebrow">Engineering portfolio</span><h1>Projects</h1><nav class="project-tabs" aria-label="Project categories"><a href="#opamps">Op-Amps</a><a href="#data-converters">Data Converters</a><a href="#bandgap">Bandgap</a></nav>
+<section id="opamps" class="section"><span class="eyebrow">Projects / Analog design</span><h2>Op-Amp Library</h2><p>These project pages are placeholders. PDF reports will be added as the designs are developed.</p><div class="grid">
+<article class="card"><span class="eyebrow">01 / Fundamentals</span><h3>Ideal Op-Amp</h3><p>Core principles and ideal amplifier behavior.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">02 / Single stage</span><h3>5T Op-Amp</h3><p>A five-transistor operational amplifier.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">03 / Single stage</span><h3>7T Op-Amp</h3><p>A seven-transistor operational amplifier.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">04 / Multistage</span><h3>Two-Stage Op-Amp</h3><p>A two-stage amplifier design.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">05 / Cascode</span><h3>Folded Cascode Op-Amp</h3><p>A folded cascode amplifier architecture.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">06 / Input range</span><h3>Rail-to-Rail Input Op-Amp</h3><p>An amplifier designed for a wide input range.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">07 / Output range</span><h3>Rail-to-Rail Output Op-Amp</h3><p>An amplifier designed for a wide output swing.</p><span class="status">PDF coming soon</span></article>
+</div></section><section id="data-converters" class="section"><span class="eyebrow">Projects / Mixed-signal design</span><h2>Data Converters</h2><p>Explore upcoming projects in analog-to-digital and digital-to-analog conversion. PDF reports will be added as the designs are developed.</p><div class="grid">
+<article class="card"><span class="eyebrow">Analog to digital</span><h3>Analog-to-Digital Converters</h3><p>Projects exploring the conversion of analog signals into digital data.</p><span class="status">Projects coming soon</span></article>
+<article class="card"><span class="eyebrow">Digital to analog</span><h3>Digital-to-Analog Converters</h3><p>Projects exploring the conversion of digital data into analog signals.</p><span class="status">Projects coming soon</span></article>
+<article class="card"><span class="eyebrow">Digital to analog</span><h3>R-2R DAC</h3><p>A space for an R-2R ladder digital-to-analog converter project.</p><span class="status">PDF coming soon</span></article>
+<article class="card"><span class="eyebrow">Mixed-signal design</span><h3>Hybrid Data Converter</h3><p>A space for a hybrid data converter project.</p><span class="status">PDF coming soon</span></article>
+</div></section><section id="bandgap" class="section" hidden><span class="eyebrow">Projects / Analog design</span><h2>Bandgap</h2><p>Bandgap reference projects and their PDF reports will be added here as they are developed.</p><div class="grid"><article class="card"><span class="eyebrow">Voltage references</span><h3>Bandgap Reference</h3><p>A placeholder for upcoming bandgap design work.</p><span class="status">Project coming soon</span></article></div></section></section></div></main><footer>Alain Njipwo · Engineering Portfolio</footer>
+<script>
+function showPage() {
+  const categories = ['opamps', 'data-converters', 'bandgap'];
+  const destination = location.hash.slice(1) || 'home';
+  const isProjects = destination === 'projects' || categories.includes(destination);
+  const selected = categories.includes(destination) ? destination : 'opamps';
+  document.getElementById('home').hidden = isProjects;
+  document.getElementById('project-view').hidden = !isProjects;
+  categories.forEach(category => {
+    document.getElementById(category).hidden = category !== selected;
+    const link = document.querySelector('.project-tabs a[href="#' + category + '"]');
+    if (category === selected) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}
+window.addEventListener('hashchange', showPage);
+showPage();
+</script></body></html>
